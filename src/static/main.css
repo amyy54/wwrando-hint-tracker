@@ -1,0 +1,80 @@
+body {
+  justify-content: unset;
+  align-items: unset;
+  height: unset;
+  gap: 0.5rem;
+}
+
+.map-area-container {
+  padding-left: 0.3rem;
+  padding-top: 0.3rem;
+
+  p {
+    text-align: center;
+    min-height: 22px;
+  }
+}
+
+.map-area {
+  width: 364px;
+  height: 346px;
+  background-image: url(images/sea_chart.png);
+}
+
+.map-container {
+  padding: 7px 4px 3px 6px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.sea-sector {
+  position: relative;
+  float: left;
+  cursor: pointer;
+  width: 42.5px;
+  height: 40px;
+  border: 4px solid transparent;
+  outline-style: none;
+}
+
+.sea-sector[entrance="true"] {
+  border-color: #419aa0;
+}
+
+.sectors {
+  display: flex;
+}
+
+.sector {
+  padding-right: 1rem;
+}
+
+.item-list {
+  cursor: pointer;
+  display: flex;
+  gap: 0.3rem;
+  min-height: 60px;
+  border: 2px solid transparent;
+
+  p {
+    min-width: 185px;
+    padding-left: 0.3rem;
+  }
+
+  img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.generic-notes {
+  flex-grow: 1;
+
+  textarea {
+    height: 384px;
+    width: 95%;
+    min-width: 200px;
+    font-size: 12px;
+  }
+}

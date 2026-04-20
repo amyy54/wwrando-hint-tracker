@@ -1,0 +1,8 @@
+.wrap {
+  max-width: 450px;
+}
+
+.annotation {
+  font-style: italic;
+  font-size: 14px;
+}

@@ -1,0 +1,3 @@
+[submodule "src/static/amyy-css"]
+	path = src/static/amyy-css
+	url = https://github.com/amyy54/amyy-css
