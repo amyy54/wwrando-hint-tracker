@@ -33,58 +33,60 @@ function checkMapItemConnection() {
   }
 }
 
-document.querySelectorAll(".sea-sector").forEach((sector) => {
-  sector.addEventListener("click", (e) => {
-    if (map_selected == null) {
-      sector.style["border-color"] = window
-        .getComputedStyle(document.body)
-        .getPropertyValue("--bg-color");
+document
+  .querySelectorAll(".sea-sector, .additional-sector")
+  .forEach((sector) => {
+    sector.addEventListener("click", (e) => {
+      if (map_selected == null) {
+        sector.style["border-color"] = window
+          .getComputedStyle(document.body)
+          .getPropertyValue("--fg-color");
 
-      map_selected = sector;
-      checkMapItemConnection();
-    }
-  });
+        map_selected = sector;
+        checkMapItemConnection();
+      }
+    });
 
-  sector.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
-    if (map_selected == null) {
-      if (
-        [
-          "Gale Isle",
-          "Dragon Roost Island",
-          "Forsaken Fortress",
-          "ToTG Sector",
-          "Forest Haven",
-          "Headstone Island",
-        ].includes(sector.getAttribute("area"))
-      ) {
-        if (sector.getAttribute("entrance") == "true") {
-          sector.setAttribute("entrance", "false");
+    sector.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      if (map_selected == null) {
+        if (
+          [
+            "Gale Isle",
+            "Dragon Roost Island",
+            "Forsaken Fortress",
+            "ToTG Sector",
+            "Forest Haven",
+            "Headstone Island",
+          ].includes(sector.getAttribute("area"))
+        ) {
+          if (sector.getAttribute("entrance") == "true") {
+            sector.setAttribute("entrance", "false");
+          } else {
+            sector.setAttribute("entrance", "true");
+          }
         } else {
-          sector.setAttribute("entrance", "true");
+          navigator.clipboard.writeText(sector.getAttribute("area"));
         }
       } else {
-        navigator.clipboard.writeText(sector.getAttribute("area"));
+        map_selected.style["border-color"] = "";
+        map_selected = null;
       }
-    } else {
-      map_selected.style["border-color"] = "";
-      map_selected = null;
-    }
-  });
+    });
 
-  sector.addEventListener("mouseenter", (e) => {
-    if (map_selected == null) {
-      document.getElementById("hovered-sector-text").innerText =
-        sector.getAttribute("area");
-    }
-  });
+    sector.addEventListener("mouseenter", (e) => {
+      if (map_selected == null) {
+        document.getElementById("hovered-sector-text").innerText =
+          sector.getAttribute("area");
+      }
+    });
 
-  sector.addEventListener("mouseleave", (e) => {
-    if (map_selected == null) {
-      document.getElementById("hovered-sector-text").innerText = "";
-    }
+    sector.addEventListener("mouseleave", (e) => {
+      if (map_selected == null) {
+        document.getElementById("hovered-sector-text").innerText = "";
+      }
+    });
   });
-});
 
 document.querySelectorAll(".item-list").forEach((item) => {
   item.addEventListener("click", (e) => {

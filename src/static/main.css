@@ -8,10 +8,19 @@ body {
 .map-area-container {
   padding-left: 0.3rem;
   padding-top: 0.3rem;
+}
 
+.map-label-container {
   p {
     text-align: center;
     min-height: 22px;
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
+    margin-right: 0.3rem;
+    cursor: pointer;
   }
 }
 
@@ -40,6 +49,10 @@ body {
 
 .sea-sector[entrance="true"] {
   border-color: #419aa0;
+}
+
+.additional-sector {
+  border: 2px solid transparent;
 }
 
 .sectors {
